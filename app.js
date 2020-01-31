@@ -37,15 +37,37 @@ inquirer
         const id1 = id;
         const email1 = email;
         const role1 = role;
-        if (role1=='Intern'){
-            intern =new employee(name1,id1,email1,role1);
-        }
-        else if(role1=='engineer'){
-            engineer= new employee(name1,id1,email1,role1);
-        }
-        else if (role1=='manger'){
-            manger=new employee(name1,id1,email1,role1);
-        }
-        Console.log(name1, id1, email1, role1);
         return name1, id1, email1, role1;
     })
+
+const e = employee(name1, id1, email1, role1);
+
+if (e.role1 == 'engineer') {
+    const eng = new engineer();
+    const enggithub = eng.getGithub();
+    $("#engineerName").text(e.name1);
+    $("#engineerId").text(e.id1);
+    $("#engineerGitHub").text(enggithub);
+}
+else if (e.role1 == 'intern') {
+    const newIntern = new intern();
+    const internSchool = newIntern.getSchool();
+    $("#internId").text(e.id1);
+    $("#internName").text(e.name1);
+    $("internSchool").text(internSchool);
+
+}
+
+else if (e.role1 == 'manger') {
+
+    const newManger = new manger();
+    const mangerOffice = newManger.getOfficeNum();
+    $("#mangerName").text(e.name1);
+    $("#mangerId").text(e.id1);
+    $("#mangerOffice").text(mangerOffice);
+}
+
+
+
+
+
